@@ -2,6 +2,7 @@ import Footer from '@/layouts/common/footer/Footer'
 import Header from '@/layouts/common/header/Header'
 import { Roboto, Roboto_Mono } from 'next/font/google'
 import './globals.css'
+import StoreProvider from './provider/provider'
 
 const robotoSans = Roboto({
 	variable: '--font-roboto-sans',
@@ -27,9 +28,11 @@ export default function RootLayout({ children }) {
 			<body
 				className={`${robotoSans.variable} ${robotoMono.variable} antialiased`}
 			>
-				<Header />
-				<main>{children}</main>
-				<Footer />
+				<StoreProvider>
+					<Header />
+					<main>{children}</main>
+					<Footer />
+				</StoreProvider>
 			</body>
 		</html>
 	)
