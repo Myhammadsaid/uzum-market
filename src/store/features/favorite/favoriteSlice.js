@@ -11,7 +11,7 @@ const favorite = createSlice({
 		toggleFavorite: (state, { payload }) => {
 			const isExists = state.value.some(item => item.id === payload.id)
 			if (isExists) {
-				const index = state.value.findIndex(item => item.id !== payload.id)
+				const index = state.value.findIndex(item => item.id === payload.id)
 				if (index !== -1) {
 					state.value.splice(index, 1)
 				}

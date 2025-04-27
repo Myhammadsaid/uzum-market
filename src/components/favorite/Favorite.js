@@ -1,13 +1,15 @@
 'use client'
+import { toggleFavorite } from '@/store/features/favorite/favoriteSlice'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { CiHeart } from 'react-icons/ci'
 import { IoCartOutline } from 'react-icons/io5'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Favorite() {
 	const { back } = useRouter()
 	const favorite = useSelector(state => state.favorite.value)
+	const dispatch = useDispatch()
 
 	return (
 		<div>
